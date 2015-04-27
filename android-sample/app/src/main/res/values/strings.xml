@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Android Sample</string>
+
+    <string name="title_section1">View outcome</string>
+    <string name="title_section2">Add clothes</string>
+    <string name="title_section3">Add pants/skirts</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+
+    <string name="action_settings">Settings</string>
+</resources>
