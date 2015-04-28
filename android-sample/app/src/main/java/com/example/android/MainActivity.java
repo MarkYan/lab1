@@ -16,10 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 
 public class MainActivity extends ActionBarActivity
-    implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+    implements NavigationDrawerFragment.NavigationDrawerCallbacks,View.OnClickListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -44,6 +45,7 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
             R.id.navigation_drawer,
             (DrawerLayout) findViewById(R.id.drawer_layout));
+
     }
 
     @Override
@@ -128,6 +130,7 @@ public class MainActivity extends ActionBarActivity
         public PlaceholderFragment() {
         }
 
+        private ViewFlipper viewFlipperUp, viewFlipperDown;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -136,6 +139,133 @@ public class MainActivity extends ActionBarActivity
             switch (section) {
             case 1: {
                 rootView = inflater.inflate(R.layout.fragment_main1, container, false);
+
+                //松井add
+                //super.onCreate(savedInstanceState);
+               // setContentView(R.layout.fragment_main1);
+                viewFlipperUp = (ViewFlipper) rootView.findViewById(R.id.view_flipper_Up);
+                Button prevButtonUp = (Button) rootView.findViewById(R.id.PrevUp);
+                Button nextButtonUp = (Button) rootView.findViewById(R.id.NextUp);
+
+                prevButtonUp.setOnClickListener(new View.OnClickListener() {
+
+
+                    //Button nextButtonUp,prevButtonUp,nextButtonDown,prevButtonDown ;
+                    @Override public void onClick(View v) {
+                        switch(v.getId()){
+
+                            case R.id.PrevUp:
+                                viewFlipperUp.showPrevious();
+                                break;
+
+                            case R.id.NextUp:
+                                viewFlipperUp.showNext();
+                                break;
+                            case R.id.PrevDown:
+                                viewFlipperDown.showPrevious();
+                                break;
+
+                            case R.id.NextDown:
+                                viewFlipperDown.showNext();
+                                break;
+
+                            default:
+                                break;
+
+                        }
+                    }
+                });
+                nextButtonUp.setOnClickListener(new View.OnClickListener() {
+
+
+                    //Button nextButtonUp,prevButtonUp,nextButtonDown,prevButtonDown ;
+                    @Override public void onClick(View v) {
+                        switch(v.getId()){
+
+                            case R.id.PrevUp:
+                                viewFlipperUp.showPrevious();
+                                break;
+
+                            case R.id.NextUp:
+                                viewFlipperUp.showNext();
+                                break;
+                            case R.id.PrevDown:
+                                viewFlipperDown.showPrevious();
+                                break;
+
+                            case R.id.NextDown:
+                                viewFlipperDown.showNext();
+                                break;
+
+                            default:
+                                break;
+
+                        }
+                    }
+                });
+
+                viewFlipperDown = (ViewFlipper) rootView.findViewById(R.id.view_flipper_Down);
+                Button prevButtonDown = (Button) rootView.findViewById(R.id.PrevDown);
+                Button nextButtonDown = (Button) rootView.findViewById(R.id.NextDown);
+
+                prevButtonDown.setOnClickListener(new View.OnClickListener() {
+
+
+                    //Button nextButtonUp,prevButtonUp,nextButtonDown,prevButtonDown ;
+                    @Override public void onClick(View v) {
+                        switch(v.getId()){
+
+                            case R.id.PrevUp:
+                                viewFlipperUp.showPrevious();
+                                break;
+
+                            case R.id.NextUp:
+                                viewFlipperUp.showNext();
+                                break;
+                            case R.id.PrevDown:
+                                viewFlipperDown.showPrevious();
+                                break;
+
+                            case R.id.NextDown:
+                                viewFlipperDown.showNext();
+                                break;
+
+                            default:
+                                break;
+
+                        }
+                    }
+                });
+                nextButtonDown.setOnClickListener(new View.OnClickListener() {
+
+                   // private ViewFlipper viewFlipperUp, viewFlipperDown;
+                   // Button nextButtonUp,prevButtonUp,nextButtonDown,prevButtonDown ;
+                    @Override public void onClick(View v) {
+                        switch(v.getId()){
+
+                            case R.id.PrevUp:
+                                viewFlipperUp.showPrevious();
+                                break;
+
+                            case R.id.NextUp:
+                                viewFlipperUp.showNext();
+                                break;
+                            case R.id.PrevDown:
+                                viewFlipperDown.showPrevious();
+                                break;
+
+                            case R.id.NextDown:
+                                viewFlipperDown.showNext();
+                                break;
+
+                            default:
+                                break;
+
+                        }
+                        }
+                });
+                //fin
+
                 TextView textView = (TextView) rootView.findViewById(R.id.section_label);
                 if (textView != null) {
                     textView.setText("Welcome");
@@ -196,4 +326,36 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
+    //松井　add
+
+    private ViewFlipper viewFlipperUp, viewFlipperDown;
+    Button nextButtonUp,prevButtonUp,nextButtonDown,prevButtonDown ;
+
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+
+            case R.id.PrevUp:
+                viewFlipperUp.showPrevious();
+                break;
+
+            case R.id.NextUp:
+                viewFlipperUp.showNext();
+                break;
+            case R.id.PrevDown:
+                viewFlipperDown.showPrevious();
+                break;
+
+            case R.id.NextDown:
+                viewFlipperDown.showNext();
+                break;
+
+            default:
+                break;
+
+        }
+    }
+
+    //Fin 松井
 }
